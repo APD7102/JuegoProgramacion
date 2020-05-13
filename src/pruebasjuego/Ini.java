@@ -7,11 +7,11 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -158,22 +158,30 @@ public class Ini extends JFrame {
 	public void ayudaActionPerformed(ActionEvent evt) 
 		{
 		
-			sonido("click");
-			Icon g = new ImageIcon(getClass().getResource("/imagenesysonidos/univer.png"));
-			JOptionPane.showMessageDialog(null,"Aquí va la ayuda","Ahorcado", JOptionPane.INFORMATION_MESSAGE, g);
-			sonido("click");
+			sonido("click2");
+			ImageIcon g = new ImageIcon(getClass().getResource("/imagenesysonidos/univer.png"));
+			JOptionPane.showMessageDialog(null,"Jugadores: 1 (Aunque pueden ser más de uno si se turnan para adivinar la palabra)\n" +
+					"Objetivo: Descubrir la palabra" + "\n" + "Gameplay:\n" +
+					"- Al inicio, el programa elegirá de forma aleatoria una palabra entre las que dispone el programa\n" +
+					"- El jugador deberá hacer click en cada letra que crea que puede contener la palabra a adivinar. \n" +
+					"- Si la letra está, el programa la añade sobre la línea que ocupa su lugar en la palabra a adivinar.\n" +
+					"- Si la letra no está, el programa la añade sobre la horca y dibujará una parte del muñeco.\n" +
+					"- El muñeco se dibuja en 5 partes (cabeza, tronco y extremidades), por lo que el jugador tiene 5 fallos permitidos.\n" +
+					"- Si el jugador acierta la palabra, antes de tener 5 fallos, gana.\n" +
+					"- Si el jugador acumula 5 fallos, entonces el programa  dibujará el muñeco en su totalidad, es decir, el jugador ha perdido.\n","Manual de uso", JOptionPane.INFORMATION_MESSAGE, g);
+			sonido("click2");
 			
 		}
 
 	public void salirActionPerformed(ActionEvent evt) 
 	
 		{	
-			sonido("click");
+			sonido("click2");
 			
 			if (JOptionPane.showConfirmDialog(rootPane, "¿Desea salir de la aplicación?", "Ahorcado", JOptionPane.YES_NO_OPTION,JOptionPane.ERROR_MESSAGE) == JOptionPane.YES_OPTION) 
 					{	
 				
-						sonido("click");
+						sonido("click2");
 						System.exit(0);
 						
 					} 
@@ -181,7 +189,7 @@ public class Ini extends JFrame {
 				
 				{	
 				
-					sonido("click");
+					sonido("click2");
 					setDefaultCloseOperation(0);
 					
 				}
@@ -198,38 +206,38 @@ public class Ini extends JFrame {
 
 	
 	public static void main(String args[]) 
-		{
+		{	
 			//	Añado el tema Nimbus Look and Feel para que el juego se vea igual sin importar donde se ejecute, además de para personalizarlo más
 			//	Si no funciona el juego es completamente funcional, solo cambia la estética un poco
 			//	https://docs.oracle.com/javase/8/docs/technotes/guides/swing/nimbus_laf.html
 			
-			try 
+		try 
+		{
+			for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) 
 				{
-					for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) 
+					if ("Nimbus".equals(info.getName())) 
 						{
-							if ("Nimbus".equals(info.getName())) 
-								{
-									UIManager.setLookAndFeel(info.getClassName());
-									break;
-								}
+							UIManager.setLookAndFeel(info.getClassName());
+							break;
 						}
-				} 
-			catch (ClassNotFoundException ex) 
-			{
-				Logger.getLogger(Ini.class.getName()).log(Level.SEVERE, null, ex);
-			} 
-			catch (InstantiationException ex) 
-			{
-				Logger.getLogger(Ini.class.getName()).log(Level.SEVERE, null, ex);
-			} 
-			catch (IllegalAccessException ex) 
-			{
-				Logger.getLogger(Ini.class.getName()).log(Level.SEVERE, null, ex);
-			} 
-			catch (UnsupportedLookAndFeelException ex) 
-			{
-				Logger.getLogger(Ini.class.getName()).log(Level.SEVERE, null, ex);
-			}
+				}
+		} 
+	catch (ClassNotFoundException ex) 
+	{
+		Logger.getLogger(Ini.class.getName()).log(Level.SEVERE, null, ex);
+	} 
+	catch (InstantiationException ex) 
+	{
+		Logger.getLogger(Ini.class.getName()).log(Level.SEVERE, null, ex);
+	} 
+	catch (IllegalAccessException ex) 
+	{
+		Logger.getLogger(Ini.class.getName()).log(Level.SEVERE, null, ex);
+	} 
+	catch (UnsupportedLookAndFeelException ex) 
+	{
+		Logger.getLogger(Ini.class.getName()).log(Level.SEVERE, null, ex);
+	}
 
 	new Ini().setVisible(true);
 	}
