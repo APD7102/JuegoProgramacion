@@ -22,12 +22,12 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 @SuppressWarnings("serial")
 
-public class Ini extends JFrame {
+public class Menu extends JFrame {
 	
 	Clip clip;
 	String ruta="/imagenesysonidos/";
-	
-	public Ini() 
+	String nombreJugador; 
+	public Menu() 
 	{
 		
 		VentanaInicio();
@@ -131,6 +131,7 @@ public class Ini extends JFrame {
 			clip = AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta+archivo+".wav")));
 			clip.start();
+			
 		} 
 		
 		catch (LineUnavailableException e) {
@@ -198,15 +199,25 @@ public class Ini extends JFrame {
 
 	public void jugarActionPerformed(ActionEvent evt) //Enlace con el juego
 		{
-			//Juego_normal jn = new Juego_normal();
-			//jn.setVisible(true);
-			//this.setVisible(false);
+			sonido("click2");
+			
+			nombreJugador = JOptionPane.showInputDialog(this, "Escribe tu nombre para la partida");
+			
+			sonido("click2");
+			JOptionPane.showMessageDialog(this, "Hola, " + nombreJugador);
+			sonido("click2");
+			
+			Ahorcado ah = new Ahorcado();
+			ah.setVisible(true);
+			this.setVisible(false);
 
 		}
 
 	
 	public static void main(String args[]) 
 		{	
+		
+			
 			//	Añado el tema Nimbus Look and Feel para que el juego se vea igual sin importar donde se ejecute, además de para personalizarlo más
 			//	Si no funciona el juego es completamente funcional, solo cambia la estética un poco
 			//	https://docs.oracle.com/javase/8/docs/technotes/guides/swing/nimbus_laf.html
@@ -224,22 +235,22 @@ public class Ini extends JFrame {
 		} 
 	catch (ClassNotFoundException ex) 
 	{
-		Logger.getLogger(Ini.class.getName()).log(Level.SEVERE, null, ex);
+		Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
 	} 
 	catch (InstantiationException ex) 
 	{
-		Logger.getLogger(Ini.class.getName()).log(Level.SEVERE, null, ex);
+		Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
 	} 
 	catch (IllegalAccessException ex) 
 	{
-		Logger.getLogger(Ini.class.getName()).log(Level.SEVERE, null, ex);
+		Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
 	} 
 	catch (UnsupportedLookAndFeelException ex) 
 	{
-		Logger.getLogger(Ini.class.getName()).log(Level.SEVERE, null, ex);
+		Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
 	}
 
-	new Ini().setVisible(true);
+	new Menu().setVisible(true);
 	}
 
 }
