@@ -25,9 +25,10 @@ public class Menu extends JFrame {
 
 	Clip clip;
 	String ruta = "/imagenesysonidos/";
-
+	String nombreJugador = "vacio";
+	
 	public Menu() {
-
+		
 		VentanaInicio();
 		setSize(600, 500); // Tamaño de la ventana
 		this.setLocationRelativeTo(null);// La ventana nos saldrá en el centro de la pantalla
@@ -35,7 +36,7 @@ public class Menu extends JFrame {
 	}
 
 	public void VentanaInicio() {
-
+		
 		setUndecorated(true); // Lo uso para quitar los elementos de minimizar, cerrar y maximizar la ventana.
 
 		// Botón ayuda
@@ -64,12 +65,13 @@ public class Menu extends JFrame {
 		Vista.jugar.addActionListener(new ActionListener()
 
 		{
-
+			
 			public void actionPerformed(ActionEvent evt)
-
+			
 			{
+				nombreJugador = "vacio"; //Esta variable no funsiona bro k hago joder ostya ermano
 				if (evt.getSource().equals(Vista.jugar)) {
-
+					Vista.txtNombreJugador.setText("vacio");
 					Vista.nombreJugador.setLayout(new FlowLayout());
 					Vista.nombreJugador.setSize(350, 160);
 					Vista.nombreJugador.setResizable(false);
@@ -79,17 +81,22 @@ public class Menu extends JFrame {
 					Vista.nombreJugador.add(Vista.btnAceptar);
 					Vista.nombreJugador.setLocationRelativeTo(null);
 					Vista.nombreJugador.setVisible(true);
-					String nombreJugador = "a";
-					nombreJugador = Vista.txtNombreJugador.getText();
-
-					if (nombreJugador != "a") {
-						Ahorcado ah = new Ahorcado();
-						 ah.setVisible(true);
-						setVisible(false);
-					} else {
-
-					}
+					
+					
+					
 				}
+				else if(evt.getSource().equals(Vista.btnAceptar)) 
+				{
+					
+					System.out.println(nombreJugador);
+					if(nombreJugador!="vacio") {
+						Ahorcado ah = new Ahorcado();
+						ah.setVisible(true);
+						setVisible(false);
+						
+					}
+					
+				} 
 
 			}
 		});
@@ -170,7 +177,7 @@ public class Menu extends JFrame {
 						+ "- El muñeco se dibuja en 5 partes (cabeza, tronco y extremidades), por lo que el jugador tiene 5 fallos permitidos.\n"
 						+ "- Si el jugador acierta la palabra, antes de tener 5 fallos, gana.\n"
 						+ "- Si el jugador acumula 5 fallos, entonces el programa  dibujará el muñeco en su totalidad, es decir, el jugador ha perdido.\n",
-				"Manual de uso", JOptionPane.INFORMATION_MESSAGE, g);
+						"Manual de uso", JOptionPane.INFORMATION_MESSAGE, g);
 		sonido("click2");
 
 	}
