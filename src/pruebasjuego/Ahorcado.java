@@ -60,7 +60,7 @@ public class Ahorcado extends JFrame {
 
 		imgs = new ImageIcon[12];
 		btns = new JButton[28];
-		msgs = new String[20];
+		msgs = new String[20]; 
 
 		// Imágenes del ahorcado
 		imgs[0] = new ImageIcon(getClass().getResource("/imagenesysonidos/im1.jpg"));
@@ -213,7 +213,7 @@ public class Ahorcado extends JFrame {
 						sonido("ganador1");
 						JOptionPane.showMessageDialog(this, "¡Eres un máquina, has ganado!",
 								"GANADOR", JOptionPane.INFORMATION_MESSAGE, cp);
-						
+
 						iniciar();
 						return;
 					}
@@ -226,11 +226,11 @@ public class Ahorcado extends JFrame {
 					// DE:
 					if (err == 5) {
 						sonido("perdedor1");
-						
+
 						JOptionPane.showMessageDialog(this,
 								"HAS PERDIDO\n Intenta con otra palabra la respuesta es: \n" + msgs[ran], "PERDEDOR",
 								JOptionPane.INFORMATION_MESSAGE, cara);
-						
+
 						iniciar();
 						return;
 					}
@@ -243,7 +243,7 @@ public class Ahorcado extends JFrame {
 
 	}
 
-	
+
 	private void Componentes() {
 
 		jPanel1 = new JPanel(); //Panel principal
@@ -586,9 +586,9 @@ public class Ahorcado extends JFrame {
 				button_16ActionPerformed(evt);
 			}
 
-			
+
 		});
-		
+
 		button_17.setBackground(new Color(255, 255, 255));
 		button_17.setFont(new Font("Dialog", 1, 18)); 
 		button_17.setForeground(new Color(0, 0, 0));
@@ -711,125 +711,125 @@ public class Ahorcado extends JFrame {
 
 		GroupLayout jPanel7Layout = new GroupLayout(jPanel7); //Panel de las letras
 		jPanel7.setLayout(jPanel7Layout);
-		
-				jPanel7Layout.setHorizontalGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+
+		jPanel7Layout.setHorizontalGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(jPanel7Layout.createSequentialGroup().addContainerGap().addGroup(jPanel7Layout
-				.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addComponent(button_25, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addComponent(button_19, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addComponent(button_7, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addComponent(button_13, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addComponent(button_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-				
-				.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel7Layout.createSequentialGroup()
-				.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-						
-				.addComponent(button_20, GroupLayout.DEFAULT_SIZE,GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addComponent(button_26, GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-				
-				.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-						
-				.addComponent(button_21, GroupLayout.DEFAULT_SIZE, 89,Short.MAX_VALUE)
-				.addComponent(button_27, GroupLayout.DEFAULT_SIZE,GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-				.addComponent(button_22, GroupLayout.PREFERRED_SIZE, 83,GroupLayout.PREFERRED_SIZE))
-				
-				.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)	
-				.addGroup(GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-						
-				.addComponent(button_2, GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-				.addComponent(button_3, GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-				.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 83,GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-				.addComponent(button_5, GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-				.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 91,GroupLayout.PREFERRED_SIZE))
-				.addComponent(button_24, GroupLayout.Alignment.TRAILING,GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
-				
-				.addGroup(GroupLayout.Alignment.TRAILING,jPanel7Layout.createSequentialGroup().addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-						
-				.addComponent(button_8,GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-				.addComponent(button_9,GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-				.addComponent(button_10,GroupLayout.PREFERRED_SIZE, 83,GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-				.addComponent(button_11, GroupLayout.PREFERRED_SIZE,89, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
-				
-				.addGroup(jPanel7Layout.createSequentialGroup()
-						
-				.addComponent(button_14,GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
-			    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-				.addComponent(button_15,GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED,GroupLayout.DEFAULT_SIZE,Short.MAX_VALUE)
-				.addComponent(button_16,GroupLayout.PREFERRED_SIZE, 83,GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-				
-				.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addComponent(button_23,GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
-				.addComponent(button_17,GroupLayout.Alignment.TRAILING,GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE))
-																		.addGap(2, 2, 2)))
-																.addGroup(jPanel7Layout
-																		.createParallelGroup(
-																				GroupLayout.Alignment.LEADING)
-																		.addComponent(button_18,
-																				GroupLayout.PREFERRED_SIZE, 89,
-																				GroupLayout.PREFERRED_SIZE)
-																		.addComponent(button_12,
-																				GroupLayout.PREFERRED_SIZE, 91,
-																				GroupLayout.PREFERRED_SIZE)))))
+						.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(button_25, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(button_19, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(button_7, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(button_13, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(button_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+
+						.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addGroup(jPanel7Layout.createSequentialGroup()
+										.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+
+												.addComponent(button_20, GroupLayout.DEFAULT_SIZE,GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(button_26, GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE))
+										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+
+										.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+
+												.addComponent(button_21, GroupLayout.DEFAULT_SIZE, 89,Short.MAX_VALUE)
+												.addComponent(button_27, GroupLayout.DEFAULT_SIZE,GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+										.addComponent(button_22, GroupLayout.PREFERRED_SIZE, 83,GroupLayout.PREFERRED_SIZE))
+
+								.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)	
+										.addGroup(GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+
+												.addComponent(button_2, GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+												.addComponent(button_3, GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+												.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 83,GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+												.addComponent(button_5, GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+												.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 91,GroupLayout.PREFERRED_SIZE))
+										.addComponent(button_24, GroupLayout.Alignment.TRAILING,GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
+
+										.addGroup(GroupLayout.Alignment.TRAILING,jPanel7Layout.createSequentialGroup().addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+												.addGroup(GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+
+														.addComponent(button_8,GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
+														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+														.addComponent(button_9,GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
+														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+														.addComponent(button_10,GroupLayout.PREFERRED_SIZE, 83,GroupLayout.PREFERRED_SIZE)
+														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+														.addComponent(button_11, GroupLayout.PREFERRED_SIZE,89, GroupLayout.PREFERRED_SIZE)
+														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
+
+												.addGroup(jPanel7Layout.createSequentialGroup()
+
+														.addComponent(button_14,GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
+														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+														.addComponent(button_15,GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
+														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED,GroupLayout.DEFAULT_SIZE,Short.MAX_VALUE)
+														.addComponent(button_16,GroupLayout.PREFERRED_SIZE, 83,GroupLayout.PREFERRED_SIZE)
+														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+
+														.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+																.addComponent(button_23,GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE)
+																.addComponent(button_17,GroupLayout.Alignment.TRAILING,GroupLayout.PREFERRED_SIZE, 89,GroupLayout.PREFERRED_SIZE))
+														.addGap(2, 2, 2)))
+												.addGroup(jPanel7Layout
+														.createParallelGroup(
+																GroupLayout.Alignment.LEADING)
+														.addComponent(button_18,
+																GroupLayout.PREFERRED_SIZE, 89,
+																GroupLayout.PREFERRED_SIZE)
+														.addComponent(button_12,
+																GroupLayout.PREFERRED_SIZE, 91,
+																GroupLayout.PREFERRED_SIZE)))))
 						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 		jPanel7Layout.setVerticalGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
 				jPanel7Layout.createSequentialGroup().addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-								.addComponent(button_1).addComponent(button_2).addComponent(button_5)
-								.addComponent(button_4).addComponent(button_3).addComponent(button_6))
-						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-								.addComponent(button_7).addComponent(button_8).addComponent(button_11)
-								.addComponent(button_10).addComponent(button_9).addComponent(button_12))
-						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-								.addComponent(button_13).addComponent(button_14).addComponent(button_15)
-								.addComponent(button_16).addComponent(button_17).addComponent(button_18))
-						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-								.addComponent(button_20).addComponent(button_19).addComponent(button_21)
-								.addComponent(button_22).addComponent(button_23).addComponent(button_24))
-						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(button_26).addComponent(button_27).addComponent(button_25))
-						.addGap(11, 11, 11)));
+				.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(button_1).addComponent(button_2).addComponent(button_5)
+						.addComponent(button_4).addComponent(button_3).addComponent(button_6))
+				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+				.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(button_7).addComponent(button_8).addComponent(button_11)
+						.addComponent(button_10).addComponent(button_9).addComponent(button_12))
+				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+				.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(button_13).addComponent(button_14).addComponent(button_15)
+						.addComponent(button_16).addComponent(button_17).addComponent(button_18))
+				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+				.addGroup(jPanel7Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(button_20).addComponent(button_19).addComponent(button_21)
+						.addComponent(button_22).addComponent(button_23).addComponent(button_24))
+				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+				.addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(button_26).addComponent(button_27).addComponent(button_25))
+				.addGap(11, 11, 11)));
 
 		GroupLayout jPanel1Layout = new GroupLayout(jPanel1); //Panel principal
 		jPanel1.setLayout(jPanel1Layout);
 		jPanel1Layout
-				.setHorizontalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout
-								.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-								.addGroup(
-										GroupLayout.Alignment.LEADING,
-										jPanel1Layout.createSequentialGroup().addContainerGap().addComponent(jPanel7,
-												GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-								.addGroup(GroupLayout.Alignment.LEADING,
-										jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout
-												.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-												.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addGroup(jPanel1Layout.createSequentialGroup().addContainerGap()
-														.addComponent(jPanel3, GroupLayout.DEFAULT_SIZE,
-																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-												.addComponent(jPanel6, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-								.addGap(0, 69, Short.MAX_VALUE)));
+		.setHorizontalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout
+						.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+						.addGroup(
+								GroupLayout.Alignment.LEADING,
+								jPanel1Layout.createSequentialGroup().addContainerGap().addComponent(jPanel7,
+										GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addGroup(GroupLayout.Alignment.LEADING,
+								jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout
+										.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+										.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE,
+												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addGroup(jPanel1Layout.createSequentialGroup().addContainerGap()
+												.addComponent(jPanel3, GroupLayout.DEFAULT_SIZE,
+														GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(jPanel6, GroupLayout.PREFERRED_SIZE,
+										GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addGap(0, 69, Short.MAX_VALUE)));
 		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(jPanel1Layout.createSequentialGroup().addGap(12, 12, 12)
 						.addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -850,9 +850,9 @@ public class Ahorcado extends JFrame {
 
 
 
-		
 
-		
+
+
 
 		jMenu2.setForeground(new Color(0, 0, 0));
 		jMenu2.setText("Acerca de ");
@@ -866,7 +866,7 @@ public class Ahorcado extends JFrame {
 
 		setJMenuBar(jMenuBar1);
 
-		
+
 	}
 	public void sonido (String archivo) 
 	{
@@ -875,28 +875,28 @@ public class Ahorcado extends JFrame {
 			clip = AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta+archivo+".wav")));
 			clip.start();
-			
+
 		} 
-		
+
 		catch (LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		
+
 		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		
+
 		catch (UnsupportedAudioFileException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  
-			
-		
+
+
 	}
-	
-	
+
+
 
 	private void btnSalirActionPerformed(ActionEvent evt) {
 		sonido("click2");
@@ -932,32 +932,23 @@ public class Ahorcado extends JFrame {
 
 	private void btnResolverActionPerformed(ActionEvent evt) 
 	{sonido("click2");
-		JOptionPane.showMessageDialog(this, "La palabra es: " +  msgs[ran] , "Has recurrido al método fácil...", JOptionPane.INFORMATION_MESSAGE);
-		sonido("click2");
-		iniciar();
-		return;
-		
-		
+	JOptionPane.showMessageDialog(this, "La palabra es: " +  msgs[ran] , "Has recurrido al método fácil...", JOptionPane.INFORMATION_MESSAGE);
+	sonido("click2");
+	iniciar();
+	return;
+
+
 	}
 
 	private void mejoresPartidasActionPerformed(ActionEvent evt) {
+		// Clasificacion de jugadores
 		sonido("click2");
-		Icon intru = new ImageIcon(getClass().getResource("/imagenesysonidos/intru.png"));
-		JOptionPane.showMessageDialog(null, "Jugadores: 2 (1 adivinador y 1 moderador)\n"
-				+ "Objetivo: Descubrir la palabra o frase incógnita.\n" + "\n" + "Preparación:\n"
-				+ "- Al inicio el moderador pensará en una palabra o frase y dibujará en una hoja una línea por cada letra.\n Se dibuja la base de la horca (sin el muñeco). El moderador dará una pista al jugador (adivinador).\n"
-				+ "Turno:\n" + "- En su turno el jugador puede: Pedir una letra / Adivinar la palabra. \n"
-				+ "- Pedir una letra: El moderador revisa si la letra pedida se encuentra en la palabra secreta.\n"
-				+ "-- Si la letra está, entonces el moderador la anota sobre la línea que ocupa su lugar en la palabra secreta.\n"
-				+ "-- Si la letra no está, entonces el moderador anotará la letra sobre la horca y dibujará una parte del muñeco. \n"
-				+ "- Muñeco: El muñeco se dibuja en 5 partes (cabeza, tronco y extremidades), por lo que el adivinador tiene 5 posibilidades de fallar.\n"
-				+ "- Adivinar la Palabra: El jugador puede intentar adivinar la palabra o frase secreta.\n"
-				+ "-- Si acierta la palabra, entonces el moderador completa la solución en el papel.\n"
-				+ "-- Si no acierta la palabra, entonces el moderador dibujará una parte del muñeco.\n"
-				+ "Fin de la partida:\n" + "- GANA el adivinador si descubre la palabra o frase secreta. \n"
-				+ "- PIERDE el avidinador si se dibuja el muñeco completo en la horca.\n", "Ahorcado - Instrucciones",
-				JOptionPane.INFORMATION_MESSAGE, intru);
+        if(evt.getSource().equals(mejoresPartidas)) 
+        {
+            new Puntuacion();
+        }
 		sonido("click2");
+		
 	}
 
 	private void button_1ActionPerformed(ActionEvent evt) {
@@ -972,7 +963,7 @@ public class Ahorcado extends JFrame {
 	private void button_3ActionPerformed(ActionEvent evt) {
 		sonido("teclas");
 	}// GEN-LAST:event_button_3ActionPerformed
-	
+
 	private void button_4ActionPerformed(ActionEvent evt) {
 		sonido("teclas");
 	}
@@ -1060,16 +1051,16 @@ public class Ahorcado extends JFrame {
 	private void button_15ActionPerformed(ActionEvent evt) {
 		sonido("teclas");
 	}
-	
+
 	private void button_16ActionPerformed(ActionEvent evt) {
-		
+
 		sonido("teclas");
 	}
 	private void txtPalabraActionPerformed(ActionEvent evt) {
-		
+
 	}
 
-	
+
 
 	private void jMenu2MouseClicked(MouseEvent evt) {
 		sonido("click2");
@@ -1077,10 +1068,10 @@ public class Ahorcado extends JFrame {
 		sonido("click2");
 	}
 
-	
+
 	public static void main(String args[]) {
-		
-		
+
+
 		// Añado el tema Nimbus Look and Feel para que el juego se vea igual sin
 		// importar donde se ejecute, además de para personalizarlo más
 		// Si no funciona el juego es completamente funcional, solo cambia la estética
@@ -1107,7 +1098,7 @@ public class Ahorcado extends JFrame {
 		new Ahorcado().setVisible(true);
 	}
 
-	
+
 	private JLabel Dibujo;
 	private JButton generarPalabra;
 	private JButton btnResolver;
@@ -1141,10 +1132,10 @@ public class Ahorcado extends JFrame {
 	private JButton button_9;
 	private JLabel errores;
 	private JButton mejoresPartidas;
-	
+
 	private JMenu jMenu2;
 	private JMenuBar jMenuBar1;
-	
+
 	private JPanel jPanel1;
 	private JPanel jPanel2;
 	private JPanel jPanel3;
@@ -1153,5 +1144,5 @@ public class Ahorcado extends JFrame {
 	private JPanel jPanel6;
 	private JPanel jPanel7;
 	private JTextField txtPalabra;
-	
+
 }
