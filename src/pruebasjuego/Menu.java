@@ -25,7 +25,7 @@ public class Menu extends JFrame {
 
 	Clip clip;
 	String ruta = "/imagenesysonidos/";
-	String nombreJugador = "vacio";
+	
 	
 	public Menu() {
 		
@@ -52,7 +52,20 @@ public class Menu extends JFrame {
 
 			public void actionPerformed(ActionEvent evt) {
 
-				ayudaActionPerformed(evt);
+				sonido("click2");
+				ImageIcon g = new ImageIcon(getClass().getResource("/imagenesysonidos/univer.png"));
+				JOptionPane.showMessageDialog(null,
+						"Jugadores: 1 (Aunque pueden ser más de uno si se turnan para adivinar la palabra)\n"
+								+ "Objetivo: Descubrir la palabra" + "\n" + "Gameplay:\n"
+								+ "- Al inicio, el programa elegirá de forma aleatoria una palabra entre las que dispone el programa\n"
+								+ "- El jugador deberá hacer click en cada letra que crea que puede contener la palabra a adivinar. \n"
+								+ "- Si la letra está, el programa la añade sobre la línea que ocupa su lugar en la palabra a adivinar.\n"
+								+ "- Si la letra no está, el programa la añade sobre la horca y dibujará una parte del muñeco.\n"
+								+ "- El muñeco se dibuja en 5 partes (cabeza, tronco y extremidades), por lo que el jugador tiene 5 fallos permitidos.\n"
+								+ "- Si el jugador acierta la palabra, antes de tener 5 fallos, gana.\n"
+								+ "- Si el jugador acumula 5 fallos, entonces el programa  dibujará el muñeco en su totalidad, es decir, el jugador ha perdido.\n",
+								"Manual de uso", JOptionPane.INFORMATION_MESSAGE, g);
+				sonido("click2");
 
 			}
 		});
@@ -69,9 +82,9 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent evt)
 			
 			{
-				nombreJugador = "vacio"; //Esta variable no funsiona bro k hago joder ostya ermano
+				 
 				if (evt.getSource().equals(Vista.jugar)) {
-					Vista.txtNombreJugador.setText("vacio");
+					Vista.txtNombreJugador.setText("");
 					Vista.nombreJugador.setLayout(new FlowLayout());
 					Vista.nombreJugador.setSize(350, 160);
 					Vista.nombreJugador.setResizable(false);
@@ -81,15 +94,12 @@ public class Menu extends JFrame {
 					Vista.nombreJugador.add(Vista.btnAceptar);
 					Vista.nombreJugador.setLocationRelativeTo(null);
 					Vista.nombreJugador.setVisible(true);
-					
-					
-					
+						
 				}
 				else if(evt.getSource().equals(Vista.btnAceptar)) 
 				{
 					
-					System.out.println(nombreJugador);
-					if(nombreJugador!="vacio") {
+					if(!Vista.txtNombreJugador.getText().equals("")) {
 						Ahorcado ah = new Ahorcado();
 						ah.setVisible(true);
 						setVisible(false);
@@ -119,7 +129,23 @@ public class Menu extends JFrame {
 
 			{
 
-				salirActionPerformed(evt);
+				sonido("click2");
+
+				if (JOptionPane.showConfirmDialog(rootPane, "¿Desea salir de la aplicación?", "Ahorcado",
+						JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE) == JOptionPane.YES_OPTION) 
+				{
+
+					sonido("click2");
+					System.exit(0);
+
+				} else
+
+				{
+
+					sonido("click2");
+					setDefaultCloseOperation(0);
+
+				}
 
 			}
 		});
@@ -130,7 +156,6 @@ public class Menu extends JFrame {
 		Vista.Label2.setText("EL AHORCADO"); // Texto
 		getContentPane().add(Vista.Label2);
 		Vista.Label2.setBounds(40, 30, 266, 47); // Posición del texto
-
 		// Imagen de fondo
 		Vista.Label1.setIcon(new ImageIcon(getClass().getResource("/imagenesysonidos/ahorcado2.png")));
 
@@ -139,7 +164,8 @@ public class Menu extends JFrame {
 	}
 
 	public void sonido(String archivo) {
-		try {
+		try 
+		{
 			clip = AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta + archivo + ".wav")));
 			clip.start();
@@ -163,46 +189,6 @@ public class Menu extends JFrame {
 
 	}
 
-	public void ayudaActionPerformed(ActionEvent evt) {
-
-		sonido("click2");
-		ImageIcon g = new ImageIcon(getClass().getResource("/imagenesysonidos/univer.png"));
-		JOptionPane.showMessageDialog(null,
-				"Jugadores: 1 (Aunque pueden ser más de uno si se turnan para adivinar la palabra)\n"
-						+ "Objetivo: Descubrir la palabra" + "\n" + "Gameplay:\n"
-						+ "- Al inicio, el programa elegirá de forma aleatoria una palabra entre las que dispone el programa\n"
-						+ "- El jugador deberá hacer click en cada letra que crea que puede contener la palabra a adivinar. \n"
-						+ "- Si la letra está, el programa la añade sobre la línea que ocupa su lugar en la palabra a adivinar.\n"
-						+ "- Si la letra no está, el programa la añade sobre la horca y dibujará una parte del muñeco.\n"
-						+ "- El muñeco se dibuja en 5 partes (cabeza, tronco y extremidades), por lo que el jugador tiene 5 fallos permitidos.\n"
-						+ "- Si el jugador acierta la palabra, antes de tener 5 fallos, gana.\n"
-						+ "- Si el jugador acumula 5 fallos, entonces el programa  dibujará el muñeco en su totalidad, es decir, el jugador ha perdido.\n",
-						"Manual de uso", JOptionPane.INFORMATION_MESSAGE, g);
-		sonido("click2");
-
-	}
-
-	public void salirActionPerformed(ActionEvent evt)
-
-	{
-		sonido("click2");
-
-		if (JOptionPane.showConfirmDialog(rootPane, "¿Desea salir de la aplicación?", "Ahorcado",
-				JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE) == JOptionPane.YES_OPTION) {
-
-			sonido("click2");
-			System.exit(0);
-
-		} else
-
-		{
-
-			sonido("click2");
-			setDefaultCloseOperation(0);
-
-		}
-
-	}
 
 	public static void main(String args[]) {
 

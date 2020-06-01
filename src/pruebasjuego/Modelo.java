@@ -40,7 +40,10 @@ public class Modelo {
             System.out.println("Error 2-"+sqle.getMessage());
         }
 
-        finally{}
+        finally
+        {
+        	
+        }
     }
 
 }
