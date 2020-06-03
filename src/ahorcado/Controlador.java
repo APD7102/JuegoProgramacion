@@ -306,8 +306,7 @@ public class Controlador extends JFrame {
 
 		jPanel2Layout
 		.setHorizontalGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel2Layout.createSequentialGroup().addContainerGap().addGroup(jPanel2Layout
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
+		.addGroup(jPanel2Layout.createSequentialGroup().addContainerGap().addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addComponent(Vista.generarPalabra, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 						.addGroup(jPanel2Layout.createSequentialGroup()
 								.addComponent(Vista.btnResolver, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
