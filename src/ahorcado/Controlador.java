@@ -1,4 +1,4 @@
-package pruebasjuego;
+package ahorcado;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,7 +33,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 @SuppressWarnings("serial")
-public class Ahorcado extends JFrame {
+public class Controlador extends JFrame {
 
 
 	public ImageIcon imgs[];
@@ -43,8 +43,10 @@ public class Ahorcado extends JFrame {
 	public int err;
 	public int err2;
 	public String res[];
+	int puntuacion=0;
+	String nombreJugador="";
 
-	public Ahorcado() {
+	public Controlador() {
 		Componentes();
 		setSize(650, 707);// Tamaño de la ventana
 		this.setLocationRelativeTo(null);// Posición de la ventana
@@ -203,7 +205,10 @@ public class Ahorcado extends JFrame {
 					}
 					// al ser correcta se muestra un mensaje y se reinicia el juego
 
-					if (gano) {
+					if (gano) 
+					{
+						puntuacion = puntuacion + 5;
+						Vista.jMenu3.setText("Puntuación: " + puntuacion);
 						new Sonido("ganador1");
 						JOptionPane.showMessageDialog(this, "¡Eres un máquina, has ganado!",
 								"GANADOR", JOptionPane.INFORMATION_MESSAGE, cp);
@@ -213,12 +218,15 @@ public class Ahorcado extends JFrame {
 					}
 					// SI LA LETRA NO ESTA EN EL MENSAJE, SE INCREMENTA EL ERROR Y SE CAMBIA LA
 					// IMAGEN
-				} else {
+				} 
+				else {
 					Vista.Dibujo.setIcon(imgs[++err]);
 					Vista.errores.setIcon(imgs[++err2]);////////////////////////////////////// _----
 					// SI SE LLEGA A LOS 5 ERRORES ENTONCES SE PIERDE EL JUEGO Y SE MANDA EL MENSAJE
 					// DE:
 					if (err == 5) {
+						puntuacion = puntuacion - 5;
+						Vista.jMenu3.setText("Puntuación: " + puntuacion);
 						new Sonido("perdedor1");
 
 						JOptionPane.showMessageDialog(this,
@@ -814,8 +822,11 @@ public class Ahorcado extends JFrame {
 				jMenu2MouseClicked(evt);
 			}
 		});
+		Vista.jMenu3.setForeground(new Color(0, 0, 0));
+		Vista.jMenu3.setText("Puntuación: " + puntuacion);
+		Vista.jMenu3.setFont(new Font("Dialog", 1, 14));
 		Vista.jMenuBar1.add(Vista.jMenu2);
-
+		Vista.jMenuBar1.add(Vista.jMenu3);
 		setJMenuBar(Vista.jMenuBar1);
 
 
@@ -824,19 +835,50 @@ public class Ahorcado extends JFrame {
 
 
 
-	private void btnSalirActionPerformed(ActionEvent evt) {
+	private void btnSalirActionPerformed(ActionEvent evt) 
+	{
 		new Sonido("click2");
-		if (JOptionPane.showConfirmDialog(rootPane,
-				"¿Estas seguro de querer regresar al menu principal?\n Se perdera todo su progreso..", "Ahorcado",
-				JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE) == JOptionPane.YES_OPTION) {
+		if (JOptionPane.showConfirmDialog(rootPane,"¿Estas seguro de querer regresar al menu principal?\n Se perdera todo su progreso..", "Ahorcado",JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE) == JOptionPane.YES_OPTION) 
+		{
 			new Sonido("click2");
 			Menu m = new Menu();
 			m.setVisible(true);
 			this.setVisible(false);
-		} else {
+
+			try
+			{
+				nombreJugador = Vista.txtNombreJugador.getText();
+				Modelo.ConexionBD();
+				Modelo.sentencia = "INSERT INTO usuarios (nombreUsuario,puntuacionUsuario) VALUES ('"+nombreJugador+"',"+puntuacion+")";
+				Modelo.statement.executeUpdate(Modelo.sentencia);
+			}
+
+			catch (SQLException sqle)
+			{
+				System.out.println("Error 2-"+sqle.getMessage());
+			}
+
+			finally
+			{
+				try
+				{
+					if(Modelo.connection!=null)
+					{
+						Modelo.connection.close();
+					}
+				}
+				catch (SQLException e)
+				{
+					System.out.println("Error 3-"+e.getMessage());
+				}
+			}
+		} 
+		else 
+		{	
 			new Sonido("click2");
 			setDefaultCloseOperation(0);
 		}
+
 	}
 
 	private void button_25ActionPerformed(ActionEvent evt) {
@@ -1021,8 +1063,8 @@ public class Ahorcado extends JFrame {
 			Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
 		}
 
-		new Ahorcado().setVisible(true);
+		new Controlador().setVisible(true);
 	}
-	
+
 
 }

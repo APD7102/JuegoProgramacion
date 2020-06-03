@@ -1,4 +1,4 @@
-package pruebasjuego;
+package ahorcado;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,7 +20,7 @@ public class Modelo {
 
     public static void ConexionBD() {
         try
-        {
+        {	
             //Cargar los controladores para el acceso a la BD
             Class.forName(driver);
             //Establecer la conexión con la BD

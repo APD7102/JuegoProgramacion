@@ -1,18 +1,13 @@
-package pruebasjuego;
+package ahorcado;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -27,6 +22,7 @@ public class Menu extends JFrame {
 	String ruta = "/imagenesysonidos/";
 	
 	
+	
 	public Menu() {
 		
 		VentanaInicio();
@@ -38,7 +34,6 @@ public class Menu extends JFrame {
 	public void VentanaInicio() {
 		
 		setUndecorated(true); // Lo uso para quitar los elementos de minimizar, cerrar y maximizar la ventana.
-
 		// Botón ayuda
 		Vista.ayuda.setBackground(new Color(255, 255, 255));
 		Vista.ayuda.setFont(new Font("Dialog", 1, 24));
@@ -52,7 +47,7 @@ public class Menu extends JFrame {
 
 			public void actionPerformed(ActionEvent evt) {
 
-				sonido("click2");
+				new Sonido("click2");
 				ImageIcon g = new ImageIcon(getClass().getResource("/imagenesysonidos/univer.png"));
 				JOptionPane.showMessageDialog(null,
 						"Jugadores: 1 (Aunque pueden ser más de uno si se turnan para adivinar la palabra)\n"
@@ -65,7 +60,7 @@ public class Menu extends JFrame {
 								+ "- Si el jugador acierta la palabra, antes de tener 5 fallos, gana.\n"
 								+ "- Si el jugador acumula 5 fallos, entonces el programa  dibujará el muñeco en su totalidad, es decir, el jugador ha perdido.\n",
 								"Manual de uso", JOptionPane.INFORMATION_MESSAGE, g);
-				sonido("click2");
+				new Sonido("click2");
 
 			}
 		});
@@ -99,11 +94,13 @@ public class Menu extends JFrame {
 				else if(evt.getSource().equals(Vista.btnAceptar)) 
 				{
 					
-					if(!Vista.txtNombreJugador.getText().equals("")) {
-						Ahorcado ah = new Ahorcado();
+					if(!Vista.txtNombreJugador.getText().equals("")) 
+					{
+						
+						Controlador ah = new Controlador();
 						ah.setVisible(true);
 						setVisible(false);
-						
+						Vista.nombreJugador.setVisible(false);
 					}
 					
 				} 
@@ -129,20 +126,20 @@ public class Menu extends JFrame {
 
 			{
 
-				sonido("click2");
+				new Sonido("click2");
 
 				if (JOptionPane.showConfirmDialog(rootPane, "¿Desea salir de la aplicación?", "Ahorcado",
 						JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE) == JOptionPane.YES_OPTION) 
 				{
 
-					sonido("click2");
+					new Sonido("click2");
 					System.exit(0);
 
 				} else
 
 				{
 
-					sonido("click2");
+					new Sonido("click2");
 					setDefaultCloseOperation(0);
 
 				}
@@ -163,31 +160,7 @@ public class Menu extends JFrame {
 
 	}
 
-	public void sonido(String archivo) {
-		try 
-		{
-			clip = AudioSystem.getClip();
-			clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta + archivo + ".wav")));
-			clip.start();
-
-		}
-
-		catch (LineUnavailableException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		catch (UnsupportedAudioFileException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
+	
 
 
 	public static void main(String args[]) {

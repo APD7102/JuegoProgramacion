@@ -1,4 +1,4 @@
-package pruebasjuego;
+package ahorcado;
 
 import java.awt.TextArea;
 
@@ -22,11 +22,11 @@ public class Vista extends JFrame
 	static JLabel Label1 = new JLabel();
 	// Creo los frames
 
-	static JFrame Clasificacion = new JFrame("Clasificación");
+	
 	// Creo los elementos de la ventana de la clasificación
 	static JFrame clasificacion = new JFrame("Clasificación");
 	static JLabel lblclasificacion = new JLabel("Ésta es la clasificación de jugadores");
-	static TextArea taClasificacion = new TextArea(10,30);
+	static TextArea taClasificacion = new TextArea(20,30);
 	static JFrame nombreJugador = new JFrame("Nombre del Jugador");
 	static JLabel lblNombreJugador = new JLabel("Nombre del Jugador");
 	static JTextField txtNombreJugador = new JTextField(20);
@@ -75,5 +75,7 @@ public class Vista extends JFrame
 	static JButton button_15 = new JButton();
 	static JMenuBar jMenuBar1 = new JMenuBar(); //Acerca de
 	static JMenu jMenu2 = new JMenu(); //Acerca de
+	static JMenu jMenu3 = new JMenu(); // Puntuación
+	static JButton btnClasificacionVolver = new JButton("Volver");
 	
 }

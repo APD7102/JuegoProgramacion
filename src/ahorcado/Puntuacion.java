@@ -1,5 +1,6 @@
-package pruebasjuego;
+package ahorcado;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +13,10 @@ public class Puntuacion extends JFrame implements ActionListener, WindowListener
 {
 	private static final long serialVersionUID = 1L;
 	
+	Color color = new Color(204,230,255);
+	Color Azul = new Color(179,255,255);
+	
+	
 	public static void altaUsuario(String nombreUsuario)
 	{
 		
@@ -22,33 +27,37 @@ public class Puntuacion extends JFrame implements ActionListener, WindowListener
 		Vista.clasificacion.setLayout(new FlowLayout());
 		Vista.clasificacion.setTitle("Clasificación");
 		Vista.clasificacion.setResizable(false);
-		Vista.clasificacion.setLocationRelativeTo(null);
 		Vista.taClasificacion.setEditable(false);
-		Vista.clasificacion.setSize(300, 300);
+		Vista.clasificacion.setSize(270, 420);
 		Vista.clasificacion.setResizable(false);
 		Vista.clasificacion.add(Vista.lblclasificacion);
 		Vista.clasificacion.add(Vista.taClasificacion);
+		Vista.clasificacion.add(Vista.btnClasificacionVolver);
+		Vista.btnClasificacionVolver.addActionListener(this);
 		Vista.clasificacion.addWindowListener(this);
+		Vista.clasificacion.setLocationRelativeTo(null);
 		Vista.clasificacion.setVisible(true);
+		Vista.clasificacion.getContentPane().setBackground(color);
+		Vista.taClasificacion.setBackground(Azul);
 
 		try	//Sentencia para recopilar los datos e introducirlos en el text area
 		{
 			Modelo.ConexionBD();
-			Modelo.sentencia = "SELECT * FROM usuarios";
+			Modelo.sentencia = "SELECT * FROM usuarios ORDER BY puntuacionUsuario DESC";
 			Modelo.rs = Modelo.statement.executeQuery(Modelo.sentencia);
 			Vista.taClasificacion.setText("");
 			while(Modelo.rs.next())
 			{
 				if(Vista.taClasificacion.getText().length()==0)
 				{
-					Vista.taClasificacion.setText(Modelo.rs.getString("nombreUsuario")+
-							" --- "+Modelo.rs.getInt("puntuacionUsuario"));
+					Vista.taClasificacion.setText(" Jugador: " + Modelo.rs.getString("nombreUsuario")+
+							"        Puntos: "+ Modelo.rs.getInt("puntuacionUsuario"));
 				}
 				else
 				{
 					Vista.taClasificacion.setText(Vista.taClasificacion.getText() + "\n" +
-							Modelo.rs.getString("nombreUsuario")+
-							" --- "+Modelo.rs.getInt("puntuacionUsuario"));
+							" Jugador: " + Modelo.rs.getString("nombreUsuario")+
+							"        Puntos: "+ Modelo.rs.getInt("puntuacionUsuario"));
 				}
 			}
 		}
@@ -72,6 +81,15 @@ public class Puntuacion extends JFrame implements ActionListener, WindowListener
 		}
 	}
 
+	public void actionPerformed(ActionEvent evento) 
+	{
+		// Botón volver de Jugador
+		if(evento.getSource().equals(Vista.btnClasificacionVolver)) 
+		{
+			Vista.clasificacion.setVisible(false);
+		}
+	}
+	
 	public void windowClosing(WindowEvent arg0)
 	{
 		if(Vista.clasificacion.isActive())
@@ -80,18 +98,10 @@ public class Puntuacion extends JFrame implements ActionListener, WindowListener
 		}
 	}
 	
-	@Override
-	public void actionPerformed(ActionEvent evento) {}
-	@Override
 	public void windowOpened(WindowEvent e) {}
-	@Override
 	public void windowClosed(WindowEvent e) {}
-	@Override
 	public void windowIconified(WindowEvent e) {}
-	@Override
 	public void windowDeiconified(WindowEvent e) {}
-	@Override
 	public void windowActivated(WindowEvent e) {}
-	@Override
 	public void windowDeactivated(WindowEvent e) {}
 }

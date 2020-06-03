@@ -1,4 +1,4 @@
-package pruebasjuego;
+package ahorcado;
 
 import java.io.IOException;
 
