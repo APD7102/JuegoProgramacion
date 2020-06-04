@@ -1,6 +1,6 @@
 package ahorcado;
 
-import java.awt.Color;
+
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,14 +13,7 @@ public class Puntuacion extends JFrame implements ActionListener, WindowListener
 {
 	private static final long serialVersionUID = 1L;
 	
-	Color color = new Color(204,230,255);
-	Color Azul = new Color(179,255,255);
 	
-	
-	public static void altaUsuario(String nombreUsuario)
-	{
-		
-	}
 	
 	Puntuacion()
 	{
@@ -30,15 +23,13 @@ public class Puntuacion extends JFrame implements ActionListener, WindowListener
 		Vista.taClasificacion.setEditable(false);
 		Vista.clasificacion.setSize(270, 420);
 		Vista.clasificacion.setResizable(false);
-		Vista.clasificacion.add(Vista.lblclasificacion);
 		Vista.clasificacion.add(Vista.taClasificacion);
 		Vista.clasificacion.add(Vista.btnClasificacionVolver);
 		Vista.btnClasificacionVolver.addActionListener(this);
 		Vista.clasificacion.addWindowListener(this);
 		Vista.clasificacion.setLocationRelativeTo(null);
 		Vista.clasificacion.setVisible(true);
-		Vista.clasificacion.getContentPane().setBackground(color);
-		Vista.taClasificacion.setBackground(Azul);
+		
 
 		try	//Sentencia para recopilar los datos e introducirlos en el text area
 		{

@@ -8,9 +8,11 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Sonido {
+	
 	Clip clip;
 	String ruta="/imagenesysonidos/";
 	Sonido(String archivo){
+		
 		try 
 		{
 			clip = AudioSystem.getClip();
@@ -19,17 +21,20 @@ public class Sonido {
 
 		} 
 
-		catch (LineUnavailableException e) {
+		catch (LineUnavailableException e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 
-		catch (IOException e) {
+		catch (IOException e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 
-		catch (UnsupportedAudioFileException e) {
+		catch (UnsupportedAudioFileException e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  

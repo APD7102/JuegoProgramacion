@@ -20,18 +20,19 @@ public class Vista extends JFrame
 	static JButton salir = new JButton();
 	static JLabel Label2 = new JLabel();
 	static JLabel Label1 = new JLabel();
-	// Creo los frames
+	
 
 	
-	// Creo los elementos de la ventana de la clasificación
+	//Creo los elementos de la ventana de la clasificación
+	
 	static JFrame clasificacion = new JFrame("Clasificación");
-	static JLabel lblclasificacion = new JLabel("Ésta es la clasificación de jugadores");
 	static TextArea taClasificacion = new TextArea(20,30);
-	static JFrame nombreJugador = new JFrame("Nombre del Jugador");
-	static JLabel lblNombreJugador = new JLabel("Nombre del Jugador");
+	static JFrame nombreJugador = new JFrame("Ingrese el nombre de jugador");
 	static JTextField txtNombreJugador = new JTextField(20);
 	static JButton btnAceptar = new JButton("Aceptar");
+	
 	// Creo los elementos de la interfaz del juego en sí
+	
 	static JPanel jPanel1 = new JPanel(); //Panel principal
 	static JPanel jPanel2 = new JPanel(); //Panel de menu
 	static JButton generarPalabra = new JButton(); //Botón para generar una nueva palabra

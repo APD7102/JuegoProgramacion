@@ -21,18 +21,11 @@ public class Menu extends JFrame {
 	Clip clip;
 	String ruta = "/imagenesysonidos/";
 	
-	
-	
 	public Menu() {
 		
-		VentanaInicio();
+		
 		setSize(600, 500); // Tamaño de la ventana
 		this.setLocationRelativeTo(null);// La ventana nos saldrá en el centro de la pantalla
-
-	}
-
-	public void VentanaInicio() {
-		
 		setUndecorated(true); // Lo uso para quitar los elementos de minimizar, cerrar y maximizar la ventana.
 		// Botón ayuda
 		Vista.ayuda.setBackground(new Color(255, 255, 255));
@@ -42,11 +35,11 @@ public class Menu extends JFrame {
 		getContentPane().add(Vista.ayuda);
 		Vista.ayuda.setBounds(70, 290, 200, 70);
 		Vista.ayuda.addActionListener(new ActionListener()
-
 		{
-
-			public void actionPerformed(ActionEvent evt) {
-
+			
+			public void actionPerformed(ActionEvent evt) 
+			
+			{
 				new Sonido("click2");
 				ImageIcon g = new ImageIcon(getClass().getResource("/imagenesysonidos/univer.png"));
 				JOptionPane.showMessageDialog(null,
@@ -77,20 +70,21 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent evt)
 			
 			{
-				 
-				if (evt.getSource().equals(Vista.jugar)) {
+				new Sonido("click2");
+				if (evt.getSource().equals(Vista.jugar)) 
+				{
 					Vista.txtNombreJugador.setText("");
 					Vista.nombreJugador.setLayout(new FlowLayout());
-					Vista.nombreJugador.setSize(350, 160);
+					Vista.nombreJugador.setSize(350, 100);
 					Vista.nombreJugador.setResizable(false);
 					Vista.btnAceptar.addActionListener(this);
-					Vista.nombreJugador.add(Vista.lblNombreJugador);
 					Vista.nombreJugador.add(Vista.txtNombreJugador);
 					Vista.nombreJugador.add(Vista.btnAceptar);
 					Vista.nombreJugador.setLocationRelativeTo(null);
 					Vista.nombreJugador.setVisible(true);
 						
 				}
+				
 				else if(evt.getSource().equals(Vista.btnAceptar)) 
 				{
 					
@@ -135,7 +129,9 @@ public class Menu extends JFrame {
 					new Sonido("click2");
 					System.exit(0);
 
-				} else
+				} 
+				
+				else
 
 				{
 
@@ -148,12 +144,14 @@ public class Menu extends JFrame {
 		});
 
 		// Texto de la ventana inicial
+		
 		Vista.Label2.setFont(new Font("Texto", 1, 36)); // Tipo de fuente
 		Vista.Label2.setForeground(new Color(0, 0, 0)); // Color
 		Vista.Label2.setText("EL AHORCADO"); // Texto
 		getContentPane().add(Vista.Label2);
 		Vista.Label2.setBounds(40, 30, 266, 47); // Posición del texto
 		// Imagen de fondo
+		
 		Vista.Label1.setIcon(new ImageIcon(getClass().getResource("/imagenesysonidos/ahorcado2.png")));
 
 		getContentPane().add(Vista.Label1);
@@ -161,30 +159,43 @@ public class Menu extends JFrame {
 	}
 
 	
-
-
 	public static void main(String args[]) {
 
 		// Añado el tema Nimbus Look and Feel para que el juego se vea igual sin
-		// importar donde se ejecute, además de para personalizarlo más
+		// importar donde se ejecute, además de personalizarlo más
 		// Si no funciona el juego es completamente funcional, solo cambia la estética
 		// un poco
 		// https://docs.oracle.com/javase/8/docs/technotes/guides/swing/nimbus_laf.html
 
-		try {
-			for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
+		try 
+		{
+			for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) 
+			{
+				if ("Nimbus".equals(info.getName())) 
+				{
 					UIManager.setLookAndFeel(info.getClassName());
 					break;
 				}
 			}
-		} catch (ClassNotFoundException ex) {
+		} 
+		
+		catch (ClassNotFoundException ex) 
+		{
 			Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (InstantiationException ex) {
+		} 
+		
+		catch (InstantiationException ex) 
+		{
 			Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (IllegalAccessException ex) {
+		} 
+		
+		catch (IllegalAccessException ex) 
+		{
 			Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (UnsupportedLookAndFeelException ex) {
+		} 
+		
+		catch (UnsupportedLookAndFeelException ex)
+		{
 			Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
 		}
 
