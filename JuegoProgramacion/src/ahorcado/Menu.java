@@ -77,6 +77,8 @@ public class Menu extends JFrame {
 					Vista.nombreJugador.setLayout(new FlowLayout());
 					Vista.nombreJugador.setSize(350, 100);
 					Vista.nombreJugador.setResizable(false);
+					Vista.labelJugador.setText("Para iniciar otra partida, deberá salir por completo del juego");
+					Vista.nombreJugador.add(Vista.labelJugador);
 					Vista.btnAceptar.addActionListener(this);
 					Vista.nombreJugador.add(Vista.txtNombreJugador);
 					Vista.nombreJugador.add(Vista.btnAceptar);

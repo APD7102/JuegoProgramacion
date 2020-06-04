@@ -44,7 +44,6 @@ public class Controlador extends JFrame {
 		Componentes();
 		setSize(650, 707);// Tamaño de la ventana
 		this.setLocationRelativeTo(null);// Posición de la ventana
-
 		Image icon = new ImageIcon(getClass().getResource("/imagenesysonidos/ahorcado2.png")).getImage(); //Imagen del programa
 		setIconImage(icon);
 
@@ -929,7 +928,8 @@ public class Controlador extends JFrame {
 	private void IniciarActionPerformed(ActionEvent evt) 
 	{
 		new Sonido("click2");
-		if (JOptionPane.showConfirmDialog(rootPane, "¿Estas seguro de querer una palabra nueva?", "Ahorcado",JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE) == JOptionPane.YES_OPTION) {
+		if (JOptionPane.showConfirmDialog(rootPane, "¿Estas seguro de querer una palabra nueva?", "Ahorcado",JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE) == JOptionPane.YES_OPTION) 
+		{
 			new Sonido("click2");
 			iniciar();
 		} 

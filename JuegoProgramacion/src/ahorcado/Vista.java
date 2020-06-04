@@ -28,6 +28,7 @@ public class Vista extends JFrame
 	static JFrame clasificacion = new JFrame("Clasificación");
 	static TextArea taClasificacion = new TextArea(20,30);
 	static JFrame nombreJugador = new JFrame("Ingrese el nombre de jugador");
+	static JLabel labelJugador = new JLabel();
 	static JTextField txtNombreJugador = new JTextField(20);
 	static JButton btnAceptar = new JButton("Aceptar");
 	
