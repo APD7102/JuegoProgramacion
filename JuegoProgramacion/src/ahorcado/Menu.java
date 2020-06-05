@@ -41,20 +41,7 @@ public class Menu extends JFrame {
 			
 			{
 				new Sonido("click2");
-				ImageIcon g = new ImageIcon(getClass().getResource("/imagenesysonidos/univer.png"));
-				JOptionPane.showMessageDialog(null,
-						"Jugadores: 1 (Aunque pueden ser más de uno si se turnan para adivinar la palabra)\n"
-								+ "Objetivo: Descubrir la palabra" + "\n" + "Gameplay:\n"
-								+ "- Al inicio, el programa elegirá de forma aleatoria una palabra entre las que dispone el programa\n"
-								+ "- El jugador deberá hacer click en cada letra que crea que puede contener la palabra a adivinar. \n"
-								+ "- Si la letra está, el programa la añade sobre la línea que ocupa su lugar en la palabra a adivinar.\n"
-								+ "- Si la letra no está, el programa la añade sobre la horca y dibujará una parte del muñeco.\n"
-								+ "- El muñeco se dibuja en 5 partes (cabeza, tronco y extremidades), por lo que el jugador tiene 5 fallos permitidos.\n"
-								+ "- Si el jugador acierta la palabra, antes de tener 5 fallos, gana.\n"
-								+ "- Si el jugador acumula 5 fallos, entonces el programa  dibujará el muñeco en su totalidad, es decir, el jugador ha perdido.\n",
-								"Manual de uso", JOptionPane.INFORMATION_MESSAGE, g);
-				new Sonido("click2");
-
+				new Ayuda();
 			}
 		});
 
